@@ -23,7 +23,7 @@ const Navbar = () => {
             <Container maxWidth="xl">
                 <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <Typography variant="h6" noWrap>
-                        Logo
+                        SuiteSpot
                     </Typography>
                     <Box sx={{ display: 'flex', gap: '20px' }}>
                         <StyledNavLink to="/" activeClassName={'active'}>
