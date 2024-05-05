@@ -1,7 +1,6 @@
 import { Box, Button, Card, CardContent, CardMedia, Typography } from '@mui/material'
-import hero from "./images/hero.jpg"
 
-const SearchItemCard = () => {
+const SearchItemCard = ({ room }) => {
   return (
     <Card
       elevation={3}
@@ -14,7 +13,7 @@ const SearchItemCard = () => {
     >
       <CardMedia
         component={"img"}
-        image={hero}
+        image={room.photos[0]}
         alt=""
         flexGrow={1}
         sx={{ width: '300px' }}
@@ -29,14 +28,28 @@ const SearchItemCard = () => {
             height: '100%'
           }}
         >
-          <Typography variant="h5" component="div">
-            Turtle Bay Resort
+          <Typography variant="subtitle2">
+            {room.type}
           </Typography>
-          <Typography variant='subtitle1'>
-            Spacious Rooms, Fitness Center
+          <Typography variant="h4" component="div">
+            {room.hotelName}
           </Typography>
-          <Typography variant='subtitle1'>
-            9.2 - Excellent 5979
+          <Box 
+            sx={{
+              display: 'flex',
+              gap: 1
+            }}
+          >
+            {room.amenities && room.amenities.map(a => (
+              <Typography variant='overline'
+                sx={{ fontWeight: 'bold' }}
+              >
+                {a}
+              </Typography>
+            ))}
+          </Box>
+          <Typography variant='subtitle2'>
+            {room.rating} - {`(${room.ratingAmount})`}
           </Typography>
         </CardContent>
       </Box>
@@ -54,7 +67,7 @@ const SearchItemCard = () => {
           }}
         >
           <Typography variant="body2">
-            Turtle Bay Resort
+            {room.hotelName}
           </Typography>
           <Box
             sx={{
@@ -64,7 +77,7 @@ const SearchItemCard = () => {
             }}
           >
             <Typography variant='body1'>
-              $103
+              ${room.pricePerNight}
             </Typography>
             <Button variant='contained'>
               View Deal

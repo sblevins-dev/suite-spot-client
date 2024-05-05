@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Context } from "./context/Context"
 import SearchItemCard from './SearchItemCard'
 import { Box } from '@mui/material'
 
 const SearchList = () => {
+
+    const { roomList } = useContext(Context);
+
     return (
         <Box 
             sx={{
@@ -12,11 +16,9 @@ const SearchList = () => {
                 marginY: '50px'
             }}
         >
-            <SearchItemCard />
-            <SearchItemCard />
-            <SearchItemCard />
-            <SearchItemCard />
-            <SearchItemCard />
+            {roomList && roomList.map(room => (
+                <SearchItemCard key={room.id} room={room} />
+            ))}
         </Box>
 
     )

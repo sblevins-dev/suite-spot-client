@@ -18,8 +18,6 @@ import { _get } from './axios/api';
 
 function App() {
 
-  const context = useContext(Context);
-
   const [roomList, setRoomList] = useState([]);
 
   useEffect(() => {
@@ -30,7 +28,6 @@ function App() {
     try {
       const response = await _get('/api/v1/rooms');
       setRoomList(response.data);
-      console.log(response.data)
     } catch (error) {
       console.log('Error fetching data: ', error)
     }
@@ -39,7 +36,7 @@ function App() {
   return (
     <div className="App" style={{ backgroundColor: '#efefef' }}>
       <BrowserRouter>
-        <Context.Provider value={ roomList }>
+        <Context.Provider value={{roomList}}>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <Navbar />
             <Routes>
