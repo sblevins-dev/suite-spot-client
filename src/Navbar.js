@@ -26,7 +26,7 @@ const Navbar = () => {
                         SuiteSpot
                     </Typography>
                     <Box sx={{ display: 'flex', gap: '20px' }}>
-                        <StyledNavLink to="/" activeClassName={'active'}>
+                        <StyledNavLink to="/">
                             <Typography textAlign={'center'}>Home</Typography>
                         </StyledNavLink>
 
