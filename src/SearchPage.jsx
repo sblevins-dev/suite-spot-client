@@ -8,7 +8,6 @@ const SearchPage = () => {
     <Box
       sx={{
         paddingTop: '80px',
-        bgcolor: '#efefef',
       }}
     >
       <Container>

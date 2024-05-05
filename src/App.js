@@ -9,18 +9,22 @@ import Home from './Home';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import SearchPage from './SearchPage';
+import AboutPage from './AboutPage';
+import HomeContact from './HomeContact';
 
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{backgroundColor: '#efefef'}}>
       <BrowserRouter>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/search" element={<SearchPage />} />
+            <Route path="/about" element={<AboutPage />} />
           </Routes>
+          <HomeContact />
         </LocalizationProvider>
 
       </BrowserRouter>

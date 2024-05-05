@@ -1,27 +1,43 @@
-import { AppBar, Box, Container, Menu, MenuItem, Toolbar, Typography } from '@mui/material'
+import { AppBar, Box, Container, Menu, MenuItem, Toolbar, Typography, styled } from '@mui/material'
 import React from 'react'
+import { NavLink } from 'react-router-dom'
+
+const StyledNavLink = styled(NavLink)({
+    textDecoration: 'none',
+    color: 'black',
+    '&.active': {
+        borderBottom: '2px solid blue'
+    }
+})
 
 const Navbar = () => {
     return (
-        <AppBar position="fixed" 
-        elevation={0}
-        sx={{ 
-            bgcolor: 'rgba(255, 255, 255, 0.9)', 
-            color: 'black',
-            backdropFilter: 'blur(5px) saturate(100%)'
-        }}
-            >
+        <AppBar position="fixed"
+            elevation={0}
+            sx={{
+                bgcolor: 'rgba(255, 255, 255, 0.9)',
+                color: 'black',
+                backdropFilter: 'blur(5px) saturate(100%)',
+            }}
+        >
             <Container maxWidth="xl">
-                <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <Typography variant="h6" noWrap>
                         Logo
                     </Typography>
-                    <Box sx={{display: 'flex', gap: '20px'}}>
-                        <Typography textAlign={'center'}>Home</Typography>
+                    <Box sx={{ display: 'flex', gap: '20px' }}>
+                        <StyledNavLink to="/" activeClassName={'active'}>
+                            <Typography textAlign={'center'}>Home</Typography>
+                        </StyledNavLink>
 
-                        <Typography textAlign={'center'}>About</Typography>
+                        <StyledNavLink to="/about">
+                            <Typography textAlign={'center'}>About</Typography>
+                        </StyledNavLink>
 
-                        <Typography textAlign={'center'}>Contact</Typography>
+
+                        <StyledNavLink to="/contact">
+                            <Typography textAlign={'center'}>Contact</Typography>
+                        </StyledNavLink>
                     </Box>
                 </Toolbar>
             </Container>

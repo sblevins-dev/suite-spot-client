@@ -1,9 +1,6 @@
 import { Box, Typography } from '@mui/material'
 import hero from "./images/hero.jpg"
-
-
 import Carousel from './Carousel';
-import HomeContact from './HomeContact';
 import SearchBar from './SearchBar';
 
 const Home = () => {
@@ -35,8 +32,6 @@ const Home = () => {
                 <SearchBar />
             </Box>
             <Carousel />
-            <HomeContact />
-            <Typography variant="subtitle2" textAlign={'center'} marginY={2}>Built by Stephen Blevins</Typography>
         </Box>
     )
 }

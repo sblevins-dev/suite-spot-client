@@ -4,10 +4,12 @@ import hero from "./images/hero.jpg"
 const SearchItemCard = () => {
   return (
     <Card
+      elevation={3}
       sx={{
         display: 'flex',
         justifyContent: 'space-between',
-        height: '200px'
+        height: '200px',
+        borderRadius: '3px'
       }}
     >
       <CardMedia

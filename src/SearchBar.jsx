@@ -14,8 +14,9 @@ const SearchBar = () => {
         <Box
             zIndex={2}
             bgcolor={'rgba(255, 255, 255, 0.9)'}
-            p={3}
-            borderRadius={10}
+            px={2}
+            py={1}
+            borderRadius={1}
             textAlign={"center"}
             sx={{
                 backdropFilter: 'blur(5px) saturate(100%)'
@@ -23,22 +24,20 @@ const SearchBar = () => {
         >
             <form style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
                 <TextField
-                    hiddenLabel
                     variant="outlined"
-                    placeholder='Destination'
+                    label='Destination'
                     size='small'
                 />
                 <DatePicker slotProps={{
-                    textField: { size: 'small' }
+                    textField: { size: 'small', label: 'Check-In' }
                 }}
                 />
                 <DatePicker slotProps={{
-                    textField: { size: 'small' }
+                    textField: { size: 'small', label: 'Check-Out' }
                 }} />
                 <TextField
-                    hiddenLabel
                     type="number"
-                    placeholder='Guests'
+                    label="Guests"
                     size='small' />
                 <Button variant='contained' color="primary" type='submit' onClick={handleClick}>
                     Search

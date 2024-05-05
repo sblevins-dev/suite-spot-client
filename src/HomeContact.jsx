@@ -10,7 +10,8 @@ const HomeContact = () => {
                 alignItems: 'center',
                 gap: 3,
                 marginTop: '50px',
-                backgroundColor: 'gray',
+                backgroundColor: 'darkblue',
+                color: 'white',
                 p: 4
             }}
         >
@@ -33,16 +34,19 @@ const HomeContact = () => {
                     placeholder='Your email address'
                     size='small'
                     fullWidth
-                    
+
                     sx={{
                         backgroundColor: 'white',
                         borderRadius: 1
                     }}
                 />
-                <Button type="submit" variant='contained' sx={{ paddingX: '20px'}}>
+                <Button type="submit" variant='contained' sx={{ paddingX: '20px' }}>
                     Subscribe
                 </Button>
             </Box>
+            <Typography variant="subtitle2" textAlign={'center'} marginY={2}>
+                Built by Stephen Blevins
+            </Typography>
         </Box>
     )
 }
