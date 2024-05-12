@@ -7,7 +7,7 @@ const HomeContact = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                gap: 3,
+                gap: 1,
                 marginTop: '50px',
                 backgroundColor: 'darkblue',
                 color: 'white',
@@ -15,13 +15,15 @@ const HomeContact = () => {
             }}
         >
             <Typography variant="h4">Stay in the know</Typography>
-            <Typography variant="subtitle1">Sign up to get marketing emails from
+            <Typography variant="subtitle1" textAlign={"center"} maxWidth={"600px"}>
+                Sign up to get marketing emails from
                 SuiteSpot.com, including promotions, rewards, travel experiences,
                 and information about SuiteSpot's products and services.
             </Typography>
             <Box
                 sx={{
                     display: 'flex',
+                    flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
                     gap: 2
@@ -43,7 +45,7 @@ const HomeContact = () => {
                     Subscribe
                 </Button>
             </Box>
-            <Typography variant="subtitle2" textAlign={'center'} marginY={2}>
+            <Typography variant="subtitle2" textAlign={'center'} >
                 Built by Stephen Blevins
             </Typography>
         </Box>

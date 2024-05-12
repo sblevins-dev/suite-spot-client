@@ -1,7 +1,8 @@
 import { Box, Container, Typography } from '@mui/material'
-import hero from "../images/hero.jpg"
+import about from "../images/about.jpg"
 
 const AboutPage = () => {
+    const newDesc = "Photo by freemockups.org: https://www.pexels.com/photo/black-mattress-in-front-of-a-large-window-behind-a-mountain-775219/"
     return (
         <Box paddingTop={10}>
             <Box
@@ -14,28 +15,36 @@ const AboutPage = () => {
                     <Box
                         sx={{
                             display: 'flex',
+                            flexWrap: 'wrap',
                             gap: 5
                         }}
                     >
-                        <Typography variant="body2" flexGrow={2} >
-                            Founded in 2005 by three university friends in Düsseldorf (Germany),
-                            SuiteSpot has since become a leading global accommodation search website.
-                            We are focused on reshaping the way millions of travelers search for and
-                            compare hotels and other accommodations. Part of Expedia Group (NASDAQ: TRVG),
-                            SuiteSpot's mission is to be the obvious choice when travelers are searching
-                            for a hotel.
-                            Find out how SuiteSpot works here.
+                        <Typography variant="body2" flexGrow={2} maxWidth={"800px"} >
+                            Welcome to SuiteSpot, your go-to source for hassle-free hotel 
+                            searches powered by the Booking.com API. At SuiteSpot, we're 
+                            passionate about making travel planning effortless and enjoyable. 
+                            Our platform seamlessly connects you to a vast array of hotels 
+                            worldwide, providing comprehensive information and real-time 
+                            availability. Whether you're seeking a luxurious retreat, a cozy 
+                            bed and breakfast, or a budget-friendly stay, SuiteSpot ensures 
+                            you find the perfect accommodations for your trip. Our goal is to 
+                            simplify your travel experience, offering convenience and peace of 
+                            mind as you explore destinations near and far. Start your journey 
+                            with SuiteSpot today and discover a new way to plan your travels 
+                            with confidence.
                         </Typography>
                         <Box flexGrow={1}
                             sx={{
-                                width: '2000px',
+                                width: {xs: '100%', sm: '300px'},
+                                maxWidth: '300px',
+                                minHeight: '200px',
+                                minWidth: '300px'
                             }}
                         >
-                            <img src={hero} alt=""
+                            <img src={about} alt="Photo by Donald Tong: https://www.pexels.com/photo/brown-wooden-sofa-set-with-lighted-table-lamp-189333/"
                                 style={{
                                     backgroundPosition: 'center',
                                     backgroundSize: 'cover',
-                                    height: '100%',
                                     width: '100%'
                                 }}
                             />
@@ -47,7 +56,7 @@ const AboutPage = () => {
 
             <Box
                 my={5}
-                py={10}
+                py={5}
                 sx={{
                     backgroundColor: 'darkblue',
                     color: 'white'
@@ -57,8 +66,14 @@ const AboutPage = () => {
                     <Typography variant="h5">
                         Our Mission
                     </Typography>
-                    <Typography variant="h2">
-                        When travelers are searching for a hotel, we want the obvious choice to be trivago.
+                    <Typography variant="h2"
+                        sx={{
+                            fontSize: { xs: '2rem', md: '3rem' }
+                        }}
+                    >
+                        Connecting you to the perfect stay, our website leverages the 
+                        Booking.com API to offer comprehensive hotel data, ensuring you find 
+                        the ideal accommodations for your next journey.
                     </Typography>
                 </Container>
 

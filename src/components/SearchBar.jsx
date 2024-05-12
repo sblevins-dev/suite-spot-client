@@ -14,34 +14,57 @@ const SearchBar = () => {
         <Box
             zIndex={2}
             bgcolor={'rgba(255, 255, 255, 0.9)'}
-            px={2}
-            py={1}
             borderRadius={1}
+            py={2}
+            px={2}
             textAlign={"center"}
             sx={{
-                backdropFilter: 'blur(5px) saturate(100%)'
+                backdropFilter: 'blur(5px) saturate(100%)',
+                marginX: 6
             }}
         >
-            <form style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+            <form style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
                 <TextField
-                    variant="outlined"
                     label='Destination'
                     size='small'
+                    sx={{
+                        width: '210px',
+                    }}
                 />
-                <DatePicker slotProps={{
-                    textField: { size: 'small', label: 'Check-In' }
-                }}
+                <DatePicker
+                    sx={{
+                        width: '210px'
+                    }}
+                    slotProps={{
+                        textField: { size: 'small', label: 'Check-In' }
+                    }}
                 />
-                <DatePicker slotProps={{
-                    textField: { size: 'small', label: 'Check-Out' }
-                }} />
+                <DatePicker
+                    sx={{
+                        width: '210px'
+                    }}
+                    slotProps={{
+                        textField: { size: 'small', label: 'Check-Out' }
+                    }} />
                 <TextField
                     type="number"
                     label="Guests"
-                    size='small' />
-                <Button variant='contained' color="primary" type='submit' onClick={handleClick}>
-                    Search
-                </Button>
+                    size='small'
+                    sx={{
+                        width: '210px'
+                    }}
+                />
+                <Box
+                    sx={{
+                        flexGrow: { xs: 12, sm: 1 },
+                        width: { xs: "100%", lg: 'max-content' }
+                    }}
+                >
+                    <Button variant='contained' color="primary" type='submit' onClick={handleClick}>
+                        Search
+                    </Button>
+                </Box>
+
             </form>
         </Box>
 
