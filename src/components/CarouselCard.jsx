@@ -1,5 +1,5 @@
 import { CardActionArea, Typography, Card, CardContent, CardMedia } from '@mui/material';
-import hero from "./images/hero.jpg"
+import hero from "../images/hero.jpg"
 
 const CarouselCard = ({room}) => {
     return (

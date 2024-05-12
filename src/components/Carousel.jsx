@@ -1,7 +1,7 @@
 import { Container, Typography } from '@mui/material'
 
 import { useContext } from 'react';
-import { Context } from './context/Context';
+import { Context } from '../context/Context';
 import CarouselCard from './CarouselCard';
 
 const Carousel = () => {

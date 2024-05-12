@@ -1,5 +1,5 @@
 import { Box, Container, Typography } from '@mui/material'
-import hero from "./images/hero.jpg"
+import hero from "../images/hero.jpg"
 
 const AboutPage = () => {
     return (

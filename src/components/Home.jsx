@@ -1,9 +1,9 @@
 import { Box, Typography } from '@mui/material'
-import hero from "./images/hero.jpg"
+import hero from "../images/hero.jpg"
 import Carousel from './Carousel';
 import SearchBar from './SearchBar';
 import { useContext } from 'react';
-import { Context } from './context/Context';
+import { Context } from '../context/Context';
 
 const Home = () => {
     
