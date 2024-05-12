@@ -1,5 +1,6 @@
 import { AppBar, Box, Container, Menu, MenuItem, Toolbar, Typography, styled } from '@mui/material'
 import { NavLink } from 'react-router-dom'
+import logo from "../images/Logo.png"
 
 const StyledNavLink = styled(NavLink)({
     textDecoration: 'none',
@@ -14,16 +15,23 @@ const Navbar = () => {
         <AppBar position="fixed"
             elevation={0}
             sx={{
-                bgcolor: 'rgba(255, 255, 255, 0.9)',
+                bgcolor: 'white',
                 color: 'black',
                 backdropFilter: 'blur(5px) saturate(100%)',
             }}
         >
             <Container maxWidth="xl">
                 <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <Typography variant="h6" noWrap>
-                        SuiteSpot
-                    </Typography>
+                    <Box
+                        sx={{
+                            height: '60px',
+                            overflow: 'hidden',
+                            objectFit: 'cover',
+                        }}
+                    >
+                       <img src={logo} height={"100%"} /> 
+                    </Box>
+                    
                     <Box sx={{ display: 'flex', gap: '20px' }}>
                         <StyledNavLink to="/">
                             <Typography textAlign={'center'}>Home</Typography>

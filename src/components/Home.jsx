@@ -4,6 +4,7 @@ import Carousel from './Carousel';
 import SearchBar from './SearchBar';
 import { useContext } from 'react';
 import { Context } from '../context/Context';
+import Featured from './Featured';
 
 const Home = () => {
     
@@ -36,7 +37,9 @@ const Home = () => {
                 <Typography variant="h3" color={'white'} zIndex={2}>Find your perfect stay</Typography>
                 <SearchBar />
             </Box>
+            
             <Carousel />
+            <Featured />
         </Box>
     )
 }
