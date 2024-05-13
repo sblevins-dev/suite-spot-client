@@ -8,10 +8,10 @@ const Carousel = () => {
 
   const { roomList } = useContext(Context);
 
-  let list = roomList.slice(0, 4);
+  let list = roomList.slice(0, 3);
 
   return (
-    <Container sx={{display: 'flex', gap: 3, marginY: '50px'}}>
+    <Container sx={{display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 3, marginY: '50px'}}>
         {list && list.map(room => (
             <CarouselCard key={room.id} room={room} />
         ))}

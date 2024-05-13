@@ -6,8 +6,9 @@ const SearchItemCard = ({ room }) => {
       elevation={3}
       sx={{
         display: 'flex',
+        flexWrap: 'wrap',
         justifyContent: 'space-between',
-        height: '200px',
+        height: {xs: "100%", sm: '200px'},
         borderRadius: '3px'
       }}
     >
@@ -16,7 +17,9 @@ const SearchItemCard = ({ room }) => {
         image={room.photos[0]}
         alt=""
         flexGrow={1}
-        sx={{ width: '300px' }}
+        sx={{ 
+          width: {xs: "100%", sm: '300px'}
+        }}
       />
       <Box flexGrow={2}
       >
