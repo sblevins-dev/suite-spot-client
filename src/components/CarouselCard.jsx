@@ -1,23 +1,48 @@
-import { CardActionArea, Typography, Card, CardContent, CardMedia } from '@mui/material';
-import hero from "../images/hero.jpg"
+import { CardActionArea, Typography, Card, CardContent, CardMedia, Divider } from '@mui/material';
 
-const CarouselCard = ({room}) => {
+const CarouselCard = ({ hotel }) => {
+
+    const handleClick = () => {
+        window.open(hotel.bookingLink, '_blank');
+    }
+
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card
+            onClick={handleClick}
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                maxWidth: 345,
+                minHeight: '350px',
+                height: '100%'
+            }}
+        >
             <CardActionArea>
                 <CardMedia
                     component="img"
-                    height="140"
-                    image={room.photos[0]}
-                    alt="hero"
+                    height="100%"
+                    image={hotel.image}
+                    alt={hotel.name}
+                    sx={{
+                        maxHeight: '200px'
+                    }}
                 />
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        {room.hotelName}
+                <CardContent
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                        flexGrow: 1,
+                        minHeight: "220px",
+                        height: "100%"
+                    }}
+                >
+                    <Typography variant="h5" fontWeight={400} textAlign={'center'} pt={1} >
+                        {hotel.name}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000
-                        species, ranging across all continents except Antarctica
+                    <Divider variant='middle' />
+                    <Typography variant="body2" color="text.secondary" minHeight={'100px'}>
+                        {hotel.description}
                     </Typography>
                 </CardContent>
             </CardActionArea>
