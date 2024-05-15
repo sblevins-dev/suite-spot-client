@@ -21,7 +21,7 @@ function App() {
   const [roomList, setRoomList] = useState([]);
 
   useEffect(() => {
-    fetchData();
+    // fetchData();
   }, [])
 
   const fetchData = async () => {

@@ -2,7 +2,6 @@ import { Box, Container, Typography } from '@mui/material'
 import about from "../images/about.jpg"
 
 const AboutPage = () => {
-    const newDesc = "Photo by freemockups.org: https://www.pexels.com/photo/black-mattress-in-front-of-a-large-window-behind-a-mountain-775219/"
     return (
         <Box paddingTop={10}>
             <Box
@@ -41,7 +40,7 @@ const AboutPage = () => {
                                 minWidth: '300px'
                             }}
                         >
-                            <img src={about} alt="Photo by Donald Tong: https://www.pexels.com/photo/brown-wooden-sofa-set-with-lighted-table-lamp-189333/"
+                            <img src={"https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"} alt="Bed in Hotel"
                                 style={{
                                     backgroundPosition: 'center',
                                     backgroundSize: 'cover',

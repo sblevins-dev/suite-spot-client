@@ -29,7 +29,7 @@ const Navbar = () => {
                             objectFit: 'cover',
                         }}
                     >
-                       <img src={logo} height={"100%"} /> 
+                       <img src={logo} height={"100%"} alt='Suite Spot Logo' /> 
                     </Box>
                     
                     <Box sx={{ display: 'flex', gap: '20px' }}>

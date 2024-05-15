@@ -9,10 +9,10 @@ const SearchBar = () => {
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
-        destination: "",
-        checkIn: null,
-        checkOut: null,
-        guests: 0
+        destination: "Atlanta",
+        checkIn: dayjs('2024-09-14'),
+        checkOut: dayjs('2024-09-17'),
+        guests: 1
     });
 
     const handleChange = (e) => {
@@ -37,8 +37,18 @@ const SearchBar = () => {
         })
     }
 
-    const handleClick = () => {
-        navigate("/search")
+    const handleClick = (e) => {
+        // e.preventDefault();
+
+        if (formData.destination !== ""
+            && formData.checkIn !== null
+            && formData.checkOut !== null
+            && formData.guests !== null
+            && formData.guests > 0
+        ) {
+            navigate("/search")
+        }
+
     }
 
     return (
@@ -54,23 +64,38 @@ const SearchBar = () => {
                 marginX: 6
             }}
         >
-            <form style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+            <form
+                style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '10px'
+                }}
+            >
                 <TextField
                     name="destination"
                     value={formData.destination}
                     label='Destination'
                     size='small'
+                    required
                     sx={{
                         width: '210px',
                     }}
                     onChange={(e) => handleChange(e)}
                 />
                 <DatePicker
+                    required={true}
                     sx={{
                         width: '210px'
                     }}
                     slotProps={{
-                        textField: { size: 'small', label: 'Check-In', name: "checkIn" }
+                        textField: {
+                            size: 'small',
+                            label: 'Check-In',
+                            name: "checkIn",
+                            value: formData.checkIn
+                        }
                     }}
                     onChange={handleCheckInChange}
                 />
@@ -82,7 +107,8 @@ const SearchBar = () => {
                         textField: {
                             size: 'small',
                             label: 'Check-Out',
-                            name: "checkOut"
+                            name: "checkOut",
+                            value: formData.checkOut
                         }
                     }}
                     onChange={handleCheckOutChange}
@@ -93,6 +119,7 @@ const SearchBar = () => {
                     name="guests"
                     value={formData.guests}
                     size='small'
+                    required
                     sx={{
                         width: '210px'
                     }}
@@ -105,7 +132,7 @@ const SearchBar = () => {
                     }}
                     onChange={(e) => handleChange(e)}
                 >
-                    <Button variant='contained' color="primary" type='submit' onClick={handleClick}>
+                    <Button variant='contained' color="primary" type='submit' onClick={(e) => handleClick(e)}>
                         Search
                     </Button>
                 </Box>
