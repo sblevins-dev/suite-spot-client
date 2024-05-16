@@ -13,7 +13,7 @@ const SearchList = () => {
     }
 
     useEffect(() => {
-        if (roomList.length <= 0) {
+        if (roomList && roomList.length <= 0) {
             getRoomList();
         }
     }, [roomList])
