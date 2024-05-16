@@ -20,19 +20,19 @@ function App() {
 
   const [roomList, setRoomList] = useState([]);
 
-  useEffect(() => {
-    fetchData();
-  }, [])
+  // useEffect(() => {
+  //   fetchData();
+  // }, [])
 
-  const fetchData = async () => {
-    try {
-      const response = await _get('/api/v1/rooms');
-      setRoomList(response.data);
-      console.log(response.data)
-    } catch (error) {
-      console.log('Error fetching data: ', error)
-    }
-  }
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await _get('/api/v1/rooms');
+  //     setRoomList(response.data);
+  //     console.log(response.data)
+  //   } catch (error) {
+  //     console.log('Error fetching data: ', error)
+  //   }
+  // }
 
   return (
     <div className="App" style={{ backgroundColor: '#efefef' }}>

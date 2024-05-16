@@ -1,11 +1,22 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Context } from "../context/Context"
 import SearchItemCard from './SearchItemCard'
 import { Box } from '@mui/material'
+import { useLocation } from 'react-router-dom'
 
 const SearchList = () => {
+    const location = useLocation();
+    let roomList = location.state.data;
 
-    const { roomList } = useContext(Context);
+    const getRoomList = () => {
+        roomList = location.state.data
+    }
+
+    useEffect(() => {
+        if (roomList.length <= 0) {
+            getRoomList();
+        }
+    }, [roomList])
 
     return (
         <Box 
@@ -17,7 +28,7 @@ const SearchList = () => {
             }}
         >
             {roomList && roomList.map(room => (
-                <SearchItemCard key={room.id} room={room} />
+                <SearchItemCard room={room} />
             ))}
         </Box>
 

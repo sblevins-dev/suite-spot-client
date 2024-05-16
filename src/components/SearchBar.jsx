@@ -2,6 +2,7 @@ import { DatePicker } from '@mui/x-date-pickers';
 import { TextField, Button, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { _get } from '../axios/api';
 import dayjs from 'dayjs';
 
 const SearchBar = () => {
@@ -12,7 +13,8 @@ const SearchBar = () => {
         destination: "Atlanta",
         checkIn: dayjs('2024-09-14'),
         checkOut: dayjs('2024-09-17'),
-        guests: 1
+        guests: 1,
+        roomNum: 1
     });
 
     const handleChange = (e) => {
@@ -37,8 +39,29 @@ const SearchBar = () => {
         })
     }
 
-    const handleClick = (e) => {
-        // e.preventDefault();
+    const getHotelData = async () => {
+        const { destination, checkIn, checkOut, guests, roomNum } = formData;
+        try {
+            const locId = await _get('/v1/hotels/locations', { params: {
+                name: destination
+            } })
+
+            const hotelData = await _get('/v1/hotels/search', { params: {
+                dest_id: locId.data.dest_id,
+                checkin_date: checkIn.format('YYYY-MM-DD'),
+                checkout_date: checkOut.format('YYYY-MM-DD'),
+                adults_number: guests,
+                room_number: roomNum
+            }})
+
+            return hotelData.data;
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    const handleClick = async (e) => {
+        e.preventDefault();
 
         if (formData.destination !== ""
             && formData.checkIn !== null
@@ -46,7 +69,12 @@ const SearchBar = () => {
             && formData.guests !== null
             && formData.guests > 0
         ) {
-            navigate("/search")
+            const data = await getHotelData();
+            navigate("/search", {
+                state: {
+                    data: data
+                }
+            })
         }
 
     }

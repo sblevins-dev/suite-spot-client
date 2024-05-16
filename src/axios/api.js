@@ -10,7 +10,6 @@ const api = axios.create({
 })
 
 const _get = (url, config = {}) => {
-  console.log("URL: " + process.env.REACT_APP_API_URL)
     return api.get(url, config);
 }
 const _delete = (url, config = {}) => {
