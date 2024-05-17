@@ -42,8 +42,8 @@ function App() {
             <Navbar />
             <Routes>
               <Route index path="/" element={<Home />} />
-              <Route path="/search" element={<SearchPage />} />
-              <Route path="/about" element={<AboutPage />} />
+              <Route path="search" element={<SearchPage />} />
+              <Route path="about" element={<AboutPage />} />
             </Routes>
             <HomeContact />
           </LocalizationProvider>
