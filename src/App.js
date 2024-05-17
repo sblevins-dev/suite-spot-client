@@ -36,7 +36,7 @@ function App() {
 
   return (
     <div className="App" style={{ backgroundColor: '#efefef' }}>
-      <BrowserRouter basename="/suite-spot-client/">
+      <BrowserRouter >
         <Context.Provider value={{roomList}}>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <Navbar />
