@@ -43,18 +43,25 @@ const SearchBar = () => {
         const { destination, checkIn, checkOut, guests, roomNum } = formData;
         try {
             const locId = await _get('/v1/hotels/locations', { params: {
-                name: destination
+                name: destination,
+                locale: 'en-us',
+                currency: 'USD'
             } })
 
             const hotelData = await _get('/v1/hotels/search', { params: {
-                dest_id: locId.data.dest_id,
+                dest_id: locId.data[0].dest_id,
                 checkin_date: checkIn.format('YYYY-MM-DD'),
                 checkout_date: checkOut.format('YYYY-MM-DD'),
                 adults_number: guests,
-                room_number: roomNum
+                room_number: roomNum,
+                dest_type: "city",
+                order_by: "popularity",
+                filter_by_currency: "USD",
+                locale: "en-us",
+                units: "imperial"
             }})
 
-            return hotelData.data;
+            return hotelData.data.result;
         } catch (e) {
             console.log(e)
         }
@@ -70,7 +77,7 @@ const SearchBar = () => {
             && formData.guests > 0
         ) {
             const data = await getHotelData();
-            navigate("/search", {
+            navigate("/suite-spot-client/search", {
                 state: {
                     data: data
                 }

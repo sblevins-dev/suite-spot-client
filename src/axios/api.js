@@ -8,8 +8,8 @@ const api = axios.create({
     baseURL: BASE_URL,
     headers: {
         'Content-Type': 'application/json',
-        "x-rapidapi-host": API_HOST,
-        "x-rapidapi-key": API_KEY
+        "X-RapidAPI-Host": API_HOST,
+        "X-RapidAPI-Key": API_KEY
     }
 })
 

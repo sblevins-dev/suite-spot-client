@@ -41,9 +41,9 @@ function App() {
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <Navbar />
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="search" element={<SearchPage />} />
-              <Route path="about" element={<AboutPage />} />
+              <Route path="/suite-spot-client/" element={<Home />} />
+              <Route path="/suite-spot-client/search" element={<SearchPage />} />
+              <Route path="/suite-spot-client/about" element={<AboutPage />} />
             </Routes>
             <HomeContact />
           </LocalizationProvider>
