@@ -77,7 +77,7 @@ const SearchBar = () => {
             && formData.guests > 0
         ) {
             const data = await getHotelData();
-            navigate("/suite-spot-client/search", {
+            navigate("/search", {
                 state: {
                     data: data
                 }

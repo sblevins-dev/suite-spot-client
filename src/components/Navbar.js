@@ -33,16 +33,16 @@ const Navbar = () => {
                     </Box>
                     
                     <Box sx={{ display: 'flex', gap: '20px' }}>
-                        <StyledNavLink to="/suite-spot-client/">
+                        <StyledNavLink to="/">
                             <Typography textAlign={'center'}>Home</Typography>
                         </StyledNavLink>
 
-                        <StyledNavLink to="/suite-spot-client/about">
+                        <StyledNavLink to="/about">
                             <Typography textAlign={'center'}>About</Typography>
                         </StyledNavLink>
 
 
-                        <StyledNavLink to="/suite-spot-client/contact">
+                        <StyledNavLink to="/contact">
                             <Typography textAlign={'center'}>Contact</Typography>
                         </StyledNavLink>
                     </Box>

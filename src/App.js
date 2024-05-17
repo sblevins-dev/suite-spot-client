@@ -14,6 +14,7 @@ import HomeContact from './components/HomeContact';
 import { useEffect, useState } from 'react';
 import { Context } from './context/Context';
 import { _get } from './axios/api';
+import { Box } from '@mui/material';
 
 
 function App() {
@@ -36,15 +37,18 @@ function App() {
 
   return (
     <div className="App" style={{ backgroundColor: '#efefef' }}>
-      <BrowserRouter >
+      <BrowserRouter>
         <Context.Provider value={{roomList}}>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <Navbar />
-            <Routes>
-              <Route path="/suite-spot-client/" element={<Home />} />
-              <Route path="/suite-spot-client/search" element={<SearchPage />} />
-              <Route path="/suite-spot-client/about" element={<AboutPage />} />
+            <Box>
+              <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/search" element={<SearchPage />} />
+              <Route path="/about" element={<AboutPage />} />
             </Routes>
+            </Box>
+            
             <HomeContact />
           </LocalizationProvider>
         </Context.Provider>
