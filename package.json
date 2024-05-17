@@ -1,7 +1,6 @@
 {
   "name": "hotel-client",
   "version": "0.1.0",
-  "homepage": "https://sblevins-dev.github.io/suite-spot-client/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.4",
@@ -25,7 +24,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "aws s3 sync build/ s3://suite-spot-client",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
