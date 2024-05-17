@@ -36,12 +36,12 @@ function App() {
 
   return (
     <div className="App" style={{ backgroundColor: '#efefef' }}>
-      <BrowserRouter>
+      <BrowserRouter basename="/suite-spot-client">
         <Context.Provider value={{roomList}}>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <Navbar />
             <Routes>
-              <Route index path="*" element={<Home />} />
+              <Route index path="/" element={<Home />} />
               <Route path="/search" element={<SearchPage />} />
               <Route path="/about" element={<AboutPage />} />
             </Routes>
