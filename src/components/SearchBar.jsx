@@ -1,9 +1,32 @@
 import { DatePicker } from '@mui/x-date-pickers';
-import { TextField, Button, Box } from '@mui/material';
+import { TextField, Button, Box, styled } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { _get } from '../axios/api';
 import dayjs from 'dayjs';
+
+const MyTextField = styled(TextField)({
+    width: '210px',
+    color: 'red',
+    '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+            borderColor: 'darkblue',// border color
+            color: 'red',
+
+        },
+        '&:hover fieldset': {
+            borderColor: 'darkorange', // hover border color
+        },
+        '&.Mui-focused fieldset': {
+            borderColor: 'darkblue', // focused border color
+            color: 'darkblue'
+        },
+    },
+    '& .MuiInputBase-input': {
+        backgroundColor: 'white',
+        borderRadius: '5px',
+    },
+})
 
 const SearchBar = () => {
 
@@ -42,24 +65,28 @@ const SearchBar = () => {
     const getHotelData = async () => {
         const { destination, checkIn, checkOut, guests, roomNum } = formData;
         try {
-            const locId = await _get('/v1/hotels/locations', { params: {
-                name: destination,
-                locale: 'en-us',
-                currency: 'USD'
-            } })
+            const locId = await _get('/v1/hotels/locations', {
+                params: {
+                    name: destination,
+                    locale: 'en-us',
+                    currency: 'USD'
+                }
+            })
 
-            const hotelData = await _get('/v1/hotels/search', { params: {
-                dest_id: locId.data[0].dest_id,
-                checkin_date: checkIn.format('YYYY-MM-DD'),
-                checkout_date: checkOut.format('YYYY-MM-DD'),
-                adults_number: guests,
-                room_number: roomNum,
-                dest_type: "city",
-                order_by: "popularity",
-                filter_by_currency: "USD",
-                locale: "en-us",
-                units: "imperial"
-            }})
+            const hotelData = await _get('/v1/hotels/search', {
+                params: {
+                    dest_id: locId.data[0].dest_id,
+                    checkin_date: checkIn.format('YYYY-MM-DD'),
+                    checkout_date: checkOut.format('YYYY-MM-DD'),
+                    adults_number: guests,
+                    room_number: roomNum,
+                    dest_type: "city",
+                    order_by: "popularity",
+                    filter_by_currency: "USD",
+                    locale: "en-us",
+                    units: "imperial"
+                }
+            })
 
             return hotelData.data.result;
         } catch (e) {
@@ -108,57 +135,104 @@ const SearchBar = () => {
                     gap: '10px'
                 }}
             >
-                <TextField
+                <MyTextField
                     name="destination"
                     value={formData.destination}
                     label='Destination'
                     size='small'
                     required
-                    sx={{
-                        width: '210px',
-                    }}
                     onChange={(e) => handleChange(e)}
+                    InputLabelProps={{
+                        style: {
+                            color: 'darkblue',
+                            fontWeight: '500'
+                        }, // Change label color here
+                    }}
                 />
                 <DatePicker
                     required={true}
                     sx={{
-                        width: '210px'
+                        width: '210px',
+                        backgroundColor: 'white',
+                        borderRadius: '5px',
+                        '& .MuiOutlinedInput-root': {
+                            '& fieldset': {
+                                borderColor: 'darkblue',
+                            },
+                            '&:hover fieldset': {
+                                borderColor: 'darkorange',
+                            },
+                            '&.Mui-focused fieldset': {
+                                borderColor: 'darkblue',
+                            },
+                        },
                     }}
                     slotProps={{
                         textField: {
                             size: 'small',
                             label: 'Check-In',
                             name: "checkIn",
-                            value: formData.checkIn
+                            value: formData.checkIn,
+                            backgroundColor: 'white',
+                            InputLabelProps: {
+                                style: {
+                                    color: 'darkblue',
+                                    fontWeight: '500',
+                                },
+                            }
                         }
                     }}
                     onChange={handleCheckInChange}
                 />
                 <DatePicker
                     sx={{
-                        width: '210px'
+                        width: '210px',
+                        backgroundColor: 'white',
+                        borderRadius: '5px',
+                        '& .MuiOutlinedInput-root': {
+                            '& fieldset': {
+                                borderColor: 'darkblue',
+                            },
+                            '&:hover fieldset': {
+                                borderColor: 'darkorange',
+                            },
+                            '&.Mui-focused fieldset': {
+                                borderColor: 'darkblue',
+                            },
+                        },
                     }}
                     slotProps={{
                         textField: {
                             size: 'small',
                             label: 'Check-Out',
                             name: "checkOut",
-                            value: formData.checkOut
+                            value: formData.checkOut,
+                            backgroundColor: 'white',
+                            InputLabelProps: {
+                                style: {
+                                    color: 'darkblue',
+                                    fontWeight: '500',
+                                },
+                            }
                         }
                     }}
+
                     onChange={handleCheckOutChange}
                 />
-                <TextField
+                <MyTextField
                     type="number"
                     label="Guests"
                     name="guests"
                     value={formData.guests}
                     size='small'
                     required
-                    sx={{
-                        width: '210px'
-                    }}
                     onChange={(e) => handleChange(e)}
+                    InputLabelProps={{
+                        style: {
+                            color: 'darkblue',
+                            fontWeight: '500'
+                        }, // Change label color here
+                    }}
                 />
                 <Box
                     sx={{
@@ -167,7 +241,23 @@ const SearchBar = () => {
                     }}
                     onChange={(e) => handleChange(e)}
                 >
-                    <Button variant='contained' color="primary" type='submit' onClick={(e) => handleClick(e)}>
+                    <Button
+                        variant='contained'
+                        color="primary"
+                        type='submit'
+                        onClick={(e) => handleClick(e)}
+                        sx={{
+                            maxWidth: '200px',
+                            alignSelf: 'center',
+                            transition: 'all 0.3s ease-in-out',
+                            borderRadius: '20px',
+                            paddingX: '30px',
+                            '&:hover': {
+                                backgroundColor: 'orange'
+                            }
+
+                        }}
+                    >
                         Search
                     </Button>
                 </Box>

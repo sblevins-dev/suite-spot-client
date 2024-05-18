@@ -7,6 +7,9 @@ const StyledNavLink = styled(NavLink)({
     color: 'black',
     '&.active': {
         borderBottom: '2px solid blue'
+    },
+    '&:hover': {
+        borderBottom: '2px solid orange'
     }
 })
 
