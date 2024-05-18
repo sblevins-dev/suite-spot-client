@@ -41,7 +41,21 @@ const HomeContact = () => {
                         borderRadius: 1
                     }}
                 />
-                <Button type="submit" variant='contained' sx={{ paddingX: '20px' }}>
+                <Button
+                    type="submit"
+                    variant='contained'
+                    sx={{
+                        maxWidth: '200px',
+                        alignSelf: 'center',
+                        transition: 'all 0.2s ease-in-out',
+                        borderRadius: '20px',
+                        paddingX: '30px',
+                        '&:hover': {
+                            backgroundColor: 'orange'
+                        }
+
+                    }}
+                >
                     Subscribe
                 </Button>
             </Box>
