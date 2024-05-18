@@ -2,6 +2,7 @@ import SearchPage from './SearchPage';
 import AboutPage from './AboutPage';
 import Home from './Home';
 import { Route, Routes } from 'react-router-dom'
+import ContactPage from './ContactPage';
 
 const Main = () => {
     return (
@@ -10,6 +11,7 @@ const Main = () => {
                 <Route exact path="/" element={<Home />} />
                 <Route path="/search" element={<SearchPage />} />
                 <Route path="/about" element={<AboutPage />} />
+                <Route path="/contact" element={<ContactPage />} />
             </Routes>
         </>
     )

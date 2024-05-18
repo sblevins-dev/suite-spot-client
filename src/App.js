@@ -10,6 +10,7 @@ import HomeContact from './components/HomeContact';
 import { useState } from 'react';
 import { _get } from './axios/api';
 import Main from './components/Main';
+import { Box } from '@mui/material';
 
 
 function App() {
@@ -31,13 +32,22 @@ function App() {
   // }
 
   return (
-    <div className="App" style={{ backgroundColor: '#efefef' }}>
+    <Box
+      sx={{
+        backgroundColor: "#efefef",
+        minHeight: 'calc(100vh - 60px)',
+        display: 'flex',
+        marginTop: '60px',
+        flexDirection: 'column',
+        justifyContent: 'space-between'
+      }}
+    >
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <Navbar />
         <Main />
         <HomeContact />
       </LocalizationProvider>
-    </div>
+    </Box>
   );
 }
 
