@@ -10,7 +10,7 @@ const MyTextField = styled(TextField)({
     color: 'red',
     '& .MuiOutlinedInput-root': {
         '& fieldset': {
-            borderColor: 'darkblue',// border color
+            // borderColor: 'darkblue',// border color
             color: 'red',
 
         },
@@ -157,7 +157,7 @@ const SearchBar = () => {
                         borderRadius: '5px',
                         '& .MuiOutlinedInput-root': {
                             '& fieldset': {
-                                borderColor: 'darkblue',
+                                // borderColor: 'darkblue',
                             },
                             '&:hover fieldset': {
                                 borderColor: 'darkorange',
@@ -191,7 +191,7 @@ const SearchBar = () => {
                         borderRadius: '5px',
                         '& .MuiOutlinedInput-root': {
                             '& fieldset': {
-                                borderColor: 'darkblue',
+                                // borderColor: 'darkblue',
                             },
                             '&:hover fieldset': {
                                 borderColor: 'darkorange',

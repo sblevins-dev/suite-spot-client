@@ -1,6 +1,6 @@
 // import email from "../lotties/email.json"
 import Lottie from "react-lottie"
-import { Box, Button, Container, TextField, Typography, styled } from '@mui/material'
+import { Box, Button, Container, Divider, TextField, Typography, styled } from '@mui/material'
 import React from 'react'
 import email from "../images/email.png"
 
@@ -78,18 +78,24 @@ const ContactPage = () => {
                         <Typography
                             variant="h4"
                             fontWeight={600}
-                            mb={4}
                             sx={{
-                                textAlign: 'center'
+                                textAlign: 'center',
                             }}
                         >
                             Get In Touch
                         </Typography>
+                        <Divider variant="middle" 
+                        sx={{ 
+                            backgroundColor: '#00c3ca',
+                            marginX: 9
+                            }}  
+                            />
                         <form
                             style={{
                                 display: 'flex',
                                 flexDirection: 'column',
-                                rowGap: "15px"
+                                rowGap: "15px",
+                                marginTop: '20px'
                             }}
                         >
                             <MyTextFieldWrapper sx={{ margin: {xs: 0}}}>
@@ -139,7 +145,7 @@ const ContactPage = () => {
                                     borderRadius: '20px',
                                     paddingX: '30px',
                                     '&:hover': {
-                                        backgroundColor: '#00c3ca'
+                                        backgroundColor: 'orange'
                                     }
 
                                 }}

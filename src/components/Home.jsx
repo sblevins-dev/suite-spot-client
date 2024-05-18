@@ -43,11 +43,20 @@ const Home = () => {
                     textAlign={"center"}
                     fontWeight={400}
                     sx={{
-                        fontSize: { xs: '40px', md: '60px'},
-                        marginTop: { xs: '60px', sm: '0'}
+                        fontSize: { xs: '40px', md: '60px' },
+                        marginTop: { xs: '60px', sm: '0' }
                     }}
                 >
-                    Your Home Away from Home
+                    Your Home {" "} 
+                        
+                    <span style={{ color: 'orange' }}>
+                        Away
+                    </span>
+                    {" "} From {" "} 
+                    <span
+                        style={{ color: 'orange' }}>
+                        Home 
+                    </span>
                 </Typography>
                 <Typography variant="subtitle1" color={'white'} zIndex={2} textAlign={'center'} mb={3}
                     sx={{
@@ -56,7 +65,7 @@ const Home = () => {
                         paddingX: { xs: "20px", sm: '5px' }
                     }}
                 >
-                    Find and book your perfect stay in just a few clicks..
+                    Find and book your perfect stay in just a few clicks...
                 </Typography>
                 <SearchBar />
             </Box>
