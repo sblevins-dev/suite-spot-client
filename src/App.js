@@ -3,17 +3,14 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Home from './components/Home';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import SearchPage from './components/SearchPage';
-import AboutPage from './components/AboutPage';
 import HomeContact from './components/HomeContact';
-import { useEffect, useState } from 'react';
-import { Context } from './context/Context';
+import { useState } from 'react';
 import { _get } from './axios/api';
+import Main from './components/Main';
+import { Box } from '@mui/material';
 
 
 function App() {
@@ -35,21 +32,22 @@ function App() {
   // }
 
   return (
-    <div className="App" style={{ backgroundColor: '#efefef' }}>
-      <BrowserRouter>
-        <Context.Provider value={{roomList}}>
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <Navbar />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="search" element={<SearchPage />} />
-              <Route path="about" element={<AboutPage />} />
-            </Routes>
-            <HomeContact />
-          </LocalizationProvider>
-        </Context.Provider>
-      </BrowserRouter>
-    </div>
+    <Box
+      sx={{
+        backgroundColor: "#efefef",
+        minHeight: 'calc(100vh - 60px)',
+        display: 'flex',
+        marginTop: '60px',
+        flexDirection: 'column',
+        justifyContent: 'space-between'
+      }}
+    >
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <Navbar />
+        <Main />
+        <HomeContact />
+      </LocalizationProvider>
+    </Box>
   );
 }
 

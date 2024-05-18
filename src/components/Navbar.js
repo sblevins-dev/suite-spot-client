@@ -1,4 +1,4 @@
-import { AppBar, Box, Container, Menu, MenuItem, Toolbar, Typography, styled } from '@mui/material'
+import { AppBar, Box, Container, Toolbar, Typography, styled } from '@mui/material'
 import { NavLink } from 'react-router-dom'
 import logo from "../images/Logo.png"
 
@@ -7,6 +7,9 @@ const StyledNavLink = styled(NavLink)({
     color: 'black',
     '&.active': {
         borderBottom: '2px solid blue'
+    },
+    '&:hover': {
+        borderBottom: '2px solid orange'
     }
 })
 

@@ -3,7 +3,7 @@ import about from "../images/about.jpg"
 
 const AboutPage = () => {
     return (
-        <Box paddingTop={10}>
+        <Box pt={6}>
             <Box
                 sx={{ backgroundColor: 'white' }}
             >

@@ -23,9 +23,8 @@ const Home = () => {
                     backgroundPosition: 'bottom',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center',
+                    justifyContent: { xs: 'flex-start', sm: 'center' },
                     flexDirection: 'column',
-                    gap: 5,
                     minHeight: { xs: '100vh', sm: '80vh' },
                     "&::before": {
                         content: '""',
@@ -37,10 +36,36 @@ const Home = () => {
                         backgroundColor: 'rgba(0, 0, 0, 0.5)',
                     }
                 }}>
-                <Typography variant="h3" color={'white'} zIndex={2} textAlign={"center"}
-                    
+                <Typography
+                    variant="h2"
+                    color={'white'}
+                    zIndex={2}
+                    textAlign={"center"}
+                    fontWeight={400}
+                    sx={{
+                        fontSize: { xs: '40px', md: '60px' },
+                        marginTop: { xs: '60px', sm: '0' }
+                    }}
                 >
-                    Find your perfect stay
+                    Your Home {" "} 
+                        
+                    <span style={{ color: 'orange' }}>
+                        Away
+                    </span>
+                    {" "} From {" "} 
+                    <span
+                        style={{ color: 'orange' }}>
+                        Home 
+                    </span>
+                </Typography>
+                <Typography variant="subtitle1" color={'white'} zIndex={2} textAlign={'center'} mb={3}
+                    sx={{
+                        maxWidth: '500px',
+                        fontSize: { xs: '15px', sm: '20px' },
+                        paddingX: { xs: "20px", sm: '5px' }
+                    }}
+                >
+                    Find and book your perfect stay in just a few clicks...
                 </Typography>
                 <SearchBar />
             </Box>

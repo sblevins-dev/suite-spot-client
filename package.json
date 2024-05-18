@@ -1,5 +1,6 @@
 {
   "name": "hotel-client",
+  "homepage": "https://sblevins-dev.github.io/suite-spot-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

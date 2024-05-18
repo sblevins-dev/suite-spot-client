@@ -1,11 +1,15 @@
 import axios from 'axios';
 
 const BASE_URL = process.env.REACT_APP_API_URL;
+const API_HOST = process.env.REACT_APP_API_HOST;
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 const api = axios.create({
     baseURL: BASE_URL,
     headers: {
         'Content-Type': 'application/json',
+        "X-RapidAPI-Host": API_HOST,
+        "X-RapidAPI-Key": API_KEY
     }
 })
 
